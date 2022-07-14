@@ -7,6 +7,7 @@ export const ClimateContext = createContext();
 // }
 
 const ClimateProvider = (props) => {
+  //Create a new component state variable
   const [temperature, setTemperature] = useState(50);
   const [humidity, setHumidity] = useState(40);
 

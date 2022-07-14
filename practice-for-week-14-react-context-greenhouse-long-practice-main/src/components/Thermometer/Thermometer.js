@@ -6,10 +6,11 @@ import useClimateContext, { ClimateContext } from '../../context/ClimateContext'
 function Thermometer() {
   const { temperature, setTemperature } = useContext(ClimateContext);
   const [clickTemp, setClickTemp] = useState(temperature);
+
   return (
     <section>
       <h2>Thermometer</h2>
-      <div className="actual-temp">Actual Temperature: {"x"}°F</div>
+      <div className="actual-temp">Actual Temperature: {`${clickTemp}`}°F</div>
       <ReactSlider
         value={clickTemp}
         onAfterChange={(value) => { setClickTemp(value) }}
