@@ -1,24 +1,25 @@
-import {useContext, createContext, useState} from 'react'
+import { useContext, createContext, useState } from 'react'
 
 export const ClimateContext = createContext();
 
-export const useClimate = () => {
-  useContext(ClimateContext);
-}
+// export const useClimate = () => {
+//   useContext(ClimateContext);
+// }
 
-export default function ClimateProvider({children}) {
-  const [temperature, setTemperature] = useState(50)
-  const [humidity, setHumidity] = useState(40)
+const ClimateProvider = (props) => {
+  const [temperature, setTemperature] = useState(50);
+  const [humidity, setHumidity] = useState(40);
 
   return (
-    <ClimateContext.Provider value={{temperature, setTemperature, humidity, setHumidity}}>
-      {children}
+    <ClimateContext.Provider value={{ temperature, setTemperature, humidity, setHumidity }}>
+      {props.children}
     </ClimateContext.Provider>
   )
 }
 
+export const useClimateContext = () => useContext(ClimateContext);
 
-
+export default ClimateProvider;
 
 
 // Temperature has a default value of 50 degrees
